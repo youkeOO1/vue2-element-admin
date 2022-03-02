@@ -1,0 +1,5 @@
+// 面包屑导航中的 a 元素的字体加粗默认是 700
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}

@@ -1,29 +1,16 @@
 # vue2-element-admin
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 介绍
+该项目是模仿 github 开源项目 vue-element-admin 
+## 技术栈
+* vue2 全家桶
+* element-ui
+## 实现功能
+* 登录 / 注销
+* 权限认证
+  * 页面权限
+  * 权限配置
+* 全局功能
+  * 动态侧边栏，支持多级路由嵌套
+  * 动态面包屑
+  * 快捷导航 (标签页)

@@ -1,0 +1,25 @@
+
+// sidebar
+$menuText:#bfcbd9;
+$menuActiveText:#409EFF;
+$subMenuActiveText:#f4f4f5; // https://github.com/ElemeFE/element/issues/12951
+
+$sidebarWidth: 210px;
+
+$menuBg: #304156;
+$menuHover: #263445;
+
+$subMenuBg:#1f2d3d;
+$subMenuHover:#001528;
+// sass 变量 转变为 js 变量
+:export {
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  sidebarWidth: $sidebarWidth;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover
+
+}
