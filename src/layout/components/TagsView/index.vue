@@ -1,8 +1,9 @@
 <template>
   <div class="tags-view-containter">
     <!-- 滚动条 -->
-    <scroll-pane class="tags-view-wrapper">
+    <scroll-pane ref="scollPane" class="tags-view-wrapper" @scroll="handleScroll">
       <router-link
+        ref="tag"
         v-for="tag in visitedViews"
         :key="tag.path"
         :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
@@ -52,7 +53,9 @@ export default {
   watch: {
     $route() {
       this.addTags()
+      this.moveToCurrentTag()
     },
+    // 是否展示右侧菜单
     visible(val) {
       if (val) {
         document.body.addEventListener('click', this.closeMenu)
@@ -163,7 +166,9 @@ export default {
       if (this.$route.path !== this.selectTag.path) {
         this.$router.push(this.selectTag)
       }
-      this.$store.dispatch('tagsView/delOptionsViews', this.selectTag)
+      this.$store.dispatch('tagsView/delOptionsViews', this.selectTag).then(() => {
+        this.moveToCurrentTag()
+      })
     },
     closeAll(route) {
       this.$store.dispatch('tagsView/delAllViews').then(({ visitedViews }) => {
@@ -207,6 +212,26 @@ export default {
     },
     closeMenu() {
       this.visible = false
+    },
+    /**
+     * 滚动条事件
+     */
+    handleScroll() {
+      // 滚动时 右键菜单关闭
+      this.closeMenu()
+    },
+    /**
+     * 移动到当前选中的tag
+     */
+    moveToCurrentTag() {
+      const tagArr = this.$refs.tag
+      this.$nextTick(() => {
+        for (const tag of tagArr) {
+          if (tag.to.path === this.$route.path) {
+            this.$refs.scollPane.moveToTarget(tag)
+          }
+        }
+      })
     }
   }
 }
