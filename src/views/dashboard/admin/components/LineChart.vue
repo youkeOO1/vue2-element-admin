@@ -122,6 +122,7 @@ export default {
           },
           {
             name: 'actual',
+            smooth: true,
             itemStyle: {
               color: '#3888fa'
             },
@@ -136,7 +137,6 @@ export default {
               disabled: true
             },
             type: 'line',
-            smooth: true,
             data: actualData,
             animationDuration: 2800,
             animationEasing: 'quadraticOut'

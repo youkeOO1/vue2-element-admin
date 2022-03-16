@@ -91,6 +91,26 @@
       }
     }
   }
+  .mobile {
+    .main-container {
+      margin-left: 0;
+    }
+    .sidebar-container {
+      transition: transform .28s;
+      width: $sidebarWidth !important;
+    }
+    &.hideSidebar {
+      .sidebar-container {
+        transform: translate3d(-$sidebarWidth, 0, 0);
+        transition-duration: 0.3s;
+      }
+    }
+  }
+  .withoutAnimation {
+    .main-container, .sidebar-container {
+      transition: none;
+    }
+  }
 }
 // 侧边栏折叠后的样式
 .el-menu--vertical {

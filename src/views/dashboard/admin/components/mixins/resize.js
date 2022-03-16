@@ -21,6 +21,30 @@ export default {
     this.$_initResizeEvent()
     this.$_initSidebarResizeEvent()
   },
+  /**
+   * 实例销毁前，移除事件监听
+   */
+  beforeDestroy() {
+    this.$_destroyResizeEvent()
+    this.$_destroySidebarResizeEvent()
+  },
+  /**
+   * 疑问
+   * 被 keep-alive 缓存的组件激活时调用
+   * 该钩子在服务器端渲染期间不被调用。
+   */
+  activated() {
+    this.$_initResizeEvent()
+    this.$_initSidebarResizeEvent()
+  },
+  /**
+   * 被 keep-alive 缓存的组件失活时调用。
+   * 该钩子在服务器端渲染期间不被调用。
+   */
+  deactivated() {
+    this.$_destroyResizeEvent()
+    this.$_destroySidebarResizeEvent()
+  },
   methods: {
     /**
      * 监听窗口改变事件
@@ -48,12 +72,5 @@ export default {
     $_destroySidebarResizeEvent() {
       this.$sidebarElm && this.$sidebarElm.removeEventListener('transitionend', this.$handleResize)
     }
-  },
-  /**
-   * 实例销毁前，移除事件监听
-   */
-  beforeDestroy() {
-    this.$_destroyResizeEvent()
-    this.$_destroySidebarResizeEvent()
   }
 }

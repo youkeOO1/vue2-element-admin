@@ -136,4 +136,20 @@ export default {
     }
   }
 }
+@media (max-width: 550px) {
+  .card-panel-description {
+    display: none;
+  }
+  .card-panel-icon-wrapper {
+    float: none !important;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    .card-panel-icon {
+      float: none !important;
+      display: block;
+      margin: 14px auto !important;
+    }
+  }
+}
 </style>

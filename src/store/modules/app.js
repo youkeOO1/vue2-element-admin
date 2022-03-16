@@ -4,7 +4,8 @@ const state = {
   sidebar: {
     opened: jsCookie.get('sidebarStatus') ? !!+jsCookie.get('sidebarStatus') : true,
     withoutAnimation: false
-  }
+  },
+  device: 'desktop'
 }
 
 const mutations = {
@@ -21,6 +22,14 @@ const mutations = {
     } else {
       jsCookie.set('sidebarStatus', 0)
     }
+  },
+  CLOSESIDEBAR: (state, withoutAnimation) => {
+    jsCookie.set('sidebarStatus', 0)
+    state.sidebar.opened = false
+    state.sidebar.withoutAnimation = withoutAnimation
+  },
+  TOGGLEDEVICE: (state, device) => {
+    state.device = device
   }
 }
 
@@ -31,6 +40,12 @@ const actions = {
    */
   toggleSideBar({ commit }) {
     commit('TOGGLESIDEBAR')
+  },
+  closeSidebar({ commit }, { withoutAnimation }) {
+    commit('CLOSESIDEBAR', withoutAnimation)
+  },
+  toggleDevice({ commit }, device) {
+    commit('TOGGLEDEVICE', device)
   }
 }
 

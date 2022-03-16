@@ -24,6 +24,15 @@
 </template>
 
 <script>
+/**
+ * 多级路由嵌套侧边栏
+ *  递归组件
+ * 自适收缩应侧边栏
+ *  三个类名
+ *    hideSidebar 是否隐藏侧边栏(侧边栏并没有隐藏只是宽度变窄)
+ *    mobile 是否为手机，当页面宽度为手机宽度时，将侧边栏移出视口 但会有动画过渡
+ *    withoutAnimation 是否取消侧边栏的动画过渡
+ */
 import Logo from './Logo.vue'
 import SidebarItem from './SidebarItem.vue'
 import { mapGetters } from 'vuex'
