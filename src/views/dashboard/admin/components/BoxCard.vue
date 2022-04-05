@@ -4,7 +4,7 @@
       <img src="https://wpimg.wallstcn.com/e7d23d71-cf19-4b90-a1cc-f56af8c0903d.png">
     </div>
     <div style="position:relative;">
-      <pan-thumb :image="avatar" />
+      <pan-thumb :image="avatar" class="panThumb" />
       <mallki class-name="mallki-text" text="vue-element-admin" />
       <div style="padding-top:35px;" class="progress-item">
         <span>Vue</span>
@@ -79,6 +79,18 @@ export default {
       top: 0;
       font-size: 20px;
       font-weight: bold;
+    }
+    .panThumb {
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      top: -45px;
+      left: 0;
+      z-index: 100;
+      border: 5px solid #ffffff;
+      background-color: #fff;
+      margin: auto;
+      box-shadow: none;
     }
     .progress-item {
       font-size: 14px;

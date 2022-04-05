@@ -56,12 +56,13 @@ router.beforeEach(async(to, from, next) => {
           // 将动态路由添加到路由中
           const { roles } = await store.dispatch('user/getInfo')
           const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
-          // if (accessRoutes.length > 0) {
-          //   accessRoutes.forEach(ele => {
-          //     router.addRoute(ele)
-          //   })
-          // }
-          router.addRoutes(accessRoutes)
+          window.rou = router
+          if (accessRoutes.length > 0) {
+            accessRoutes.forEach(ele => {
+              router.addRoute(ele)
+            })
+          }
+          // router.addRoutes(accessRoutes)
           next({ ...to, replace: true })
           // next()
         } catch (err) {

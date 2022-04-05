@@ -114,7 +114,9 @@ export default {
       const affixTags = this.affixTags = this.filterAffixTags(this.route)
       // 将其符合规则的路由保存到vuex中
       for (const item of affixTags) {
-        this.$store.dispatch('tagsView/addView', item)
+        if (item.name) {
+          this.$store.dispatch('tagsView/addView', item)
+        }
       }
     },
     addTags() {

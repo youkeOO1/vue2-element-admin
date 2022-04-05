@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Layout from '@/layout'
+import componentsRouter from './modules/components'
 
 Vue.use(VueRouter)
 // {
@@ -35,6 +36,22 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/guide',
+    component: Layout,
+    redirect: '/guide/index',
+    children: [
+      {
+        path: 'index',
+        name: 'Guide',
+        component: () => import('@v/guide'),
+        meta: {
+          title: 'Guide',
+          icon: 'guide'
+        }
+      }
+    ]
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import('@v/login')
@@ -50,53 +67,99 @@ export const asynceRouter = [
     path: '/permission',
     component: Layout,
     name: 'Permission',
+    redirect: '/permission/page',
+    alwaysShow: true,
     meta: {
       title: 'Permission',
       icon: 'lock',
-      roles: ['admin']
-    }
-  },
-  {
-    path: '/sadmin',
-    component: Layout,
-    name: 'sadmin',
-    meta: {
-      title: 'sadmin',
-      icon: 'lock',
-      roles: ['editor']
-    }
-  },
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/list',
-    name: 'Example',
-    meta: {
-      title: 'Example',
-      icon: 'el-icon-s-help'
+      roles: ['admin', 'editor']
     },
     children: [
       {
-        path: 'create',
-        component: () => import('../views/pagetest/create.vue'),
-        name: 'CreateArticle',
-        meta: { title: 'Create Article', icon: 'edit' }
+        path: 'page',
+        name: 'PagePermission',
+        component: () => import('../views/Permission/Page.vue'),
+        meta: {
+          title: 'Page Permission',
+          roles: ['admin']
+        }
       },
       {
-        path: 'edit/:id(\\d+)',
-        component: () => import('../views/pagetest/edit.vue'),
-        name: 'EditArticle',
-        meta: { title: 'Edit Article', noCache: true, activeMenu: '/example/list' },
-        hidden: true
+        path: 'directive',
+        name: 'DirectivePermission',
+        component: () => import('../views/Permission/Directive.vue'),
+        meta: {
+          title: 'Directive Permission'
+        }
       },
       {
-        path: 'list',
-        component: () => import('../views/pagetest/list.vue'),
-        name: 'ArticleList',
-        meta: { title: 'Article List', icon: 'list' }
+        path: 'role',
+        name: 'RolePermission',
+        component: () => import('../views/Permission/Role.vue'),
+        meta: {
+          title: 'Role Permission',
+          roles: ['admin']
+        }
       }
     ]
   },
+  {
+    path: '/icon',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Icons',
+        component: () => import('@v/Icons/index.vue'),
+        meta: {
+          title: 'Icons',
+          icon: 'icon'
+        }
+      }
+    ]
+  },
+  componentsRouter,
+  // {
+  //   path: '/sadmin',
+  //   component: Layout,
+  //   name: 'sadmin',
+  //   meta: {
+  //     title: 'sadmin',
+  //     icon: 'lock',
+  //     roles: ['editor']
+  //   }
+  // },
+  // {
+  //   path: '/example',
+  //   component: Layout,
+  //   redirect: '/example/list',
+  //   name: 'Example',
+  //   meta: {
+  //     title: 'Example',
+  //     icon: 'el-icon-s-help'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'create',
+  //       component: () => import('../views/pagetest/create.vue'),
+  //       name: 'CreateArticle',
+  //       meta: { title: 'Create Article', icon: 'edit' }
+  //     },
+  //     {
+  //       path: 'edit/:id(\\d+)',
+  //       component: () => import('../views/pagetest/edit.vue'),
+  //       name: 'EditArticle',
+  //       meta: { title: 'Edit Article', noCache: true, activeMenu: '/example/list' },
+  //       hidden: true
+  //     },
+  //     {
+  //       path: 'list',
+  //       component: () => import('../views/pagetest/list.vue'),
+  //       name: 'ArticleList',
+  //       meta: { title: 'Article List', icon: 'list' }
+  //     }
+  //   ]
+  // },
 
   // 404 路由放到最后
   { path: '*', redirect: '/404', hidden: true }

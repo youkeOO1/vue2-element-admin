@@ -37,7 +37,7 @@ export default {
     if (!this.chart) {
       return
     }
-    this.chart.dispatch()
+    this.chart.dispose()
     this.chart = null
   },
   methods: {

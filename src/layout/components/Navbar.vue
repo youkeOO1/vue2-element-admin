@@ -13,7 +13,7 @@
       <!-- 修改尺寸: 根据情况展示 -->
       <!-- 头像与下拉框: 必须展示 -->
       <el-dropdown class="avatar-containter right-menu-item">
-        <div class="avatar-wrapper">
+        <div id="avatar" class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
           <i class="el-icon-caret-bottom" />
           <!-- <span>头像</span> -->
@@ -58,7 +58,7 @@ export default {
      */
     async logout() {
       await this.$store.dispatch('user/logout')
-      this.$router.push(`login?redirect=${this.$route.fullPath}`)
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }
 }

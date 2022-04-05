@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// import { number } from 'echarts'
 export default {
   props: {
     width: {
@@ -37,12 +36,10 @@ export default {
   .pan-item {
     width: 70px;
     height: 70px;
-    position: absolute;
-    top: -45px;
-    left: 0;
-    background: #fff;
-    border: 5px solid #fff;
+    position: relative;
     border-radius: 50%;
+    cursor: default;
+    display: inline-block;
     .pan-info {
       width: inherit;
       height: inherit;

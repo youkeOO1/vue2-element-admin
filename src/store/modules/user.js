@@ -1,7 +1,7 @@
 // 用户信息
-import { getToken, setToken, removeToken } from '../../utils/auth'
-import { login, getInfo, logout } from '../../api/user'
-import { resetRouter } from '../../router'
+import { getToken, setToken, removeToken } from '@/utils/auth'
+import { login, getInfo, logout } from '@/api/user'
+import router, { resetRouter } from '@/router'
 
 const state = {
   token: getToken(),
@@ -113,6 +113,29 @@ const actions = {
         reject(error)
       })
     })
+  },
+  /**
+   * 修改权限
+   * @param {*} param0
+   * @param {*} role
+   */
+  async changeRoles({ commit, dispatch }, role) {
+    const token = role + '-token'
+    commit('SET_TOKEN', token)
+    setToken(token)
+
+    const { roles } = await dispatch('getInfo')
+    console.log(roles, 'roles')
+
+    resetRouter()
+    const accessRoutes = await dispatch('permission/generateRoutes', roles, { root: true })
+    if (accessRoutes.length > 0) {
+      accessRoutes.forEach((ele) => {
+        router.addRoute(ele)
+      })
+    }
+    // router.addRoutes(accessRoutes)
+    dispatch('tagsView/delAllViews', null, { root: true })
   }
 }
 

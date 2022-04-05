@@ -46,3 +46,4 @@ export function debounce(fun, wait, immediate) {
     return res
   }
 }
+

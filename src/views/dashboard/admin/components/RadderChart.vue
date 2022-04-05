@@ -40,7 +40,7 @@ export default {
       // chart 不是 exchart 的实例
       return
     }
-    this.chart.dispatch()
+    this.chart.dispose()
     this.chart = null
   },
   methods: {

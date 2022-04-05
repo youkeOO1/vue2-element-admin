@@ -13,6 +13,30 @@ body {
 #app {
   height: 100%;
 }
+.app-container {
+  padding: 20px;
+}
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+aside {
+  display: block;
+  background: #eef1f6;
+  margin-bottom: 20px;
+  padding: 8px 24px;
+  color: #2c3e50;
+  font-size: 16px;
+  line-height: 32px;
+  border-radius: 4px;
+  a {
+    color: #337ab7;
+    cursor: pointer;
+    &:hover {
+      color: rgb(32, 160, 255);
+    }
+  }
+}
 
 a:focus,
 a:active {
