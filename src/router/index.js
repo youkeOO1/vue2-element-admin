@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 
 import Layout from '@/layout'
 import componentsRouter from './modules/components'
+import charts from './modules/charts'
+import nested from './modules/nested'
+import tables from './modules/tables'
 
 Vue.use(VueRouter)
 // {
@@ -119,6 +122,9 @@ export const asynceRouter = [
     ]
   },
   componentsRouter,
+  charts,
+  nested,
+  tables,
   // {
   //   path: '/sadmin',
   //   component: Layout,

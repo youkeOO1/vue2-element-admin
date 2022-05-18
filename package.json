@@ -29,13 +29,16 @@
     "nprogress": "^0.2.0",
     "path-to-regexp": "^6.2.0",
     "recommended": "0.0.7",
+    "screenfull": "^5.2.0",
     "script-ext-html-webpack-plugin": "^2.1.5",
+    "sortablejs": "^1.15.0",
     "svg-sprite-loader": "^6.0.11",
     "tinymce": "^6.0.1",
     "vue": "^2.6.11",
     "vue-codemirror": "^4.0.6",
     "vue-count-to": "^1.0.13",
     "vue-router": "^3.5.3",
+    "vuedraggable": "^2.24.3",
     "vuex": "^3.4.0"
   },
   "devDependencies": {

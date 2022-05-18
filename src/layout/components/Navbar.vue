@@ -10,6 +10,7 @@
       <search id="header-search" class="right-menu-item" />
       <!-- 错误日志: 根据情况展示 -->
       <!-- 全屏: 根据情况展示 -->
+      <screenfull id="screenfull" class="right-menu-item hover-effect" />
       <!-- 修改尺寸: 根据情况展示 -->
       <!-- 头像与下拉框: 必须展示 -->
       <el-dropdown class="avatar-containter right-menu-item">
@@ -35,13 +36,15 @@
 import Hamburger from '@com/Hamburger'
 import Breadcrumb from '@com/Breadcrumb'
 import Search from '@com/HeaderSearch'
+import Screenfull from '@com/Screenfull'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
     Hamburger,
     Breadcrumb,
-    Search
+    Search,
+    Screenfull
   },
   computed: {
     ...mapGetters(['sidebar', 'avatar'])

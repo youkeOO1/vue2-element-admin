@@ -20,6 +20,10 @@ body {
   margin: 30px 50px;
   position: relative;
 }
+.chart-container {
+    width: 100%;
+    height: calc(100vh - 84px);
+}
 aside {
   display: block;
   background: #eef1f6;
