@@ -18,7 +18,11 @@
     z-index: 1001;
     font-size: 0;
     .scrollbar-wrapper {
+      width: 100%;
       overflow-x: hidden !important;
+      &::-webkit-scrollbar {
+        width: 0;
+      }
     }
     .el-scrollbar__bar .is-vertical {
       right: 0;

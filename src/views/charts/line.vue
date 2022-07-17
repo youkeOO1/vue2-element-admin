@@ -1,6 +1,6 @@
 <template>
   <div class="chart-container">
-    <line-marker width="100%" height="100%" />
+    <line-marker width="100%" height="100%" id="line" />
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="chart-container">
-    <mix-chart width="100%" height="100%" />
+    <mix-chart width="100%" height="100%" id="max-chart" />
   </div>
 </template>
 
